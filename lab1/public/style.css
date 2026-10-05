@@ -150,11 +150,6 @@ button:hover {
   background: var(--accent-dark);
 }
 
-.muted {
-  margin: 0;
-  color: var(--muted);
-}
-
 .book-list {
   display: grid;
   gap: 0.5rem;
@@ -181,10 +176,33 @@ button:hover {
 }
 
 .book-list button {
-  display: block;
   margin-top: 0.5rem;
   padding: 0.35rem 0.75rem;
   font-size: 0.85rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+button.secondary {
+  color: var(--accent-dark);
+  background: #eef2ff;
+}
+
+button.secondary:hover {
+  background: #e0e7ff;
+}
+
+button.danger {
+  color: var(--danger);
+  background: #fdecea;
+}
+
+button.danger:hover {
+  background: #f9d6d2;
 }
 
 button:disabled {

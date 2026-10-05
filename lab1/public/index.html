@@ -45,7 +45,7 @@
       </ul>
     </section>
 
-    <!-- Treapta 1: formular de adăugare validat în JavaScript -->
+    <!-- Treapta 1: formular de adăugare validat în JavaScript; din Treapta 3 salvează prin API -->
     <section class="card" aria-labelledby="form-title">
       <h2 id="form-title">Adaugă o carte</h2>
       <form id="book-form" novalidate>
@@ -64,7 +64,11 @@
           <input type="text" id="year" name="year" inputmode="numeric" autocomplete="off" aria-describedby="year-error">
           <p class="error" id="year-error" aria-live="polite"></p>
         </div>
-        <button type="submit">Adaugă</button>
+        <div class="actions">
+          <button type="submit" id="submit-button">Adaugă</button>
+          <button type="button" id="cancel-button" class="secondary" hidden>Anulează</button>
+        </div>
+        <p class="error" id="form-error" role="alert"></p>
       </form>
     </section>
 
@@ -82,7 +86,7 @@
 
     <section class="card wide" aria-labelledby="books-title">
       <h2 id="books-title">Cărțile mele</h2>
-      <p id="books-empty" class="muted">Nu ai adăugat nicio carte încă.</p>
+      <p id="books-status" class="status" role="status" aria-live="polite">Se încarcă...</p>
       <ul id="book-list" class="book-list"></ul>
     </section>
   </main>

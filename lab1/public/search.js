@@ -29,7 +29,7 @@ async function searchBooks(title, signal) {
   return data.docs.map((doc) => ({
     title: doc.title,
     author: doc.author_name ? doc.author_name.join(", ") : "Autor necunoscut",
-    year: doc.first_publish_year ?? "an necunoscut",
+    year: doc.first_publish_year ?? null,
   }));
 }
 
@@ -44,15 +44,20 @@ function renderResults(books) {
 
     const meta = document.createElement("span");
     meta.className = "book-meta";
-    meta.textContent = `${book.author}, ${book.year}`;
+    meta.textContent = `${book.author}, ${book.year ?? "an necunoscut"}`;
 
     const addButton = document.createElement("button");
     addButton.type = "button";
     addButton.textContent = "Adaugă în lista mea";
-    addButton.addEventListener("click", () => {
-      addBook(book);
+    addButton.addEventListener("click", async () => {
       addButton.disabled = true;
-      addButton.textContent = "Adăugată";
+      try {
+        addBookToList(await createBook(book));
+        addButton.textContent = "Adăugată";
+      } catch (error) {
+        addButton.disabled = false;
+        setStatus(`Cartea nu a putut fi adăugată: ${error.message}`, "error-status");
+      }
     });
 
     item.append(title, meta, addButton);
