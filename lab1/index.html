@@ -68,7 +68,19 @@
       </form>
     </section>
 
-    <section class="card books" aria-labelledby="books-title">
+    <!-- Treapta 2: căutare după titlu prin Open Library API -->
+    <section class="card wide" aria-labelledby="search-title">
+      <h2 id="search-title">Caută o carte în Open Library</h2>
+      <form id="search-form" class="search-form" role="search">
+        <label for="search-input" class="visually-hidden">Titlu</label>
+        <input type="search" id="search-input" name="q" placeholder="ex. Ion" autocomplete="off">
+        <button type="submit" id="search-button">Caută</button>
+      </form>
+      <p id="search-status" class="status" role="status" aria-live="polite" hidden></p>
+      <ul id="search-results" class="book-list"></ul>
+    </section>
+
+    <section class="card wide" aria-labelledby="books-title">
       <h2 id="books-title">Cărțile mele</h2>
       <p id="books-empty" class="muted">Nu ai adăugat nicio carte încă.</p>
       <ul id="book-list" class="book-list"></ul>
@@ -76,5 +88,6 @@
   </main>
 
   <script src="script.js"></script>
+  <script src="search.js"></script>
 </body>
 </html>
