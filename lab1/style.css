@@ -1,0 +1,202 @@
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --border: #d9dce3;
+  --accent: #4f46e5;
+  --accent-dark: #4338ca;
+  --danger: #c62828;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.page-header {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #fff;
+  background: var(--accent);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Mobile first: o singură coloană */
+.container {
+  display: grid;
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+}
+
+.card h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.details {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.details dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.details dd {
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--accent);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--accent-dark);
+  background: #eef2ff;
+  border-radius: 999px;
+}
+
+.field {
+  margin-bottom: 0.75rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+input.invalid {
+  border-color: var(--danger);
+}
+
+.error {
+  min-height: 1.2rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+button {
+  padding: 0.6rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+.muted {
+  margin: 0;
+  color: var(--muted);
+}
+
+.book-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book-list li {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.book-list .book-title {
+  display: block;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.book-list .book-meta {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Tabletă și desktop: profilul și formularul pe două coloane */
+@media (min-width: 720px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .books {
+    grid-column: 1 / -1;
+  }
+
+  .book-list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
