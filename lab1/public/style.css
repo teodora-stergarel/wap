@@ -210,15 +210,22 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.search-form {
+.inline-form {
   display: flex;
   gap: 0.5rem;
+}
+
+.inline-form input {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-form {
   margin-bottom: 0.75rem;
 }
 
-.search-form input {
-  flex: 1;
-  min-width: 0;
+.skill-form {
+  margin-top: 1.25rem;
 }
 
 .status {

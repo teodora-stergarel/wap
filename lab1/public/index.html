@@ -35,7 +35,7 @@
       </dl>
 
       <h3>Skills</h3>
-      <ul class="skills">
+      <ul id="skill-list" class="skills">
         <li>HTML</li>
         <li>CSS</li>
         <li>JavaScript</li>
@@ -43,6 +43,15 @@
         <li>SQL</li>
         <li>Git</li>
       </ul>
+
+      <form id="skill-form" class="skill-form" novalidate>
+        <label for="skill">Adaugă un skill</label>
+        <div class="inline-form">
+          <input type="text" id="skill" name="skill" autocomplete="off" aria-describedby="skill-error">
+          <button type="submit">Adaugă</button>
+        </div>
+        <p class="error" id="skill-error" aria-live="polite"></p>
+      </form>
     </section>
 
     <!-- Treapta 1: formular de adăugare validat în JavaScript; din Treapta 3 salvează prin API -->
@@ -75,7 +84,7 @@
     <!-- Treapta 2: căutare după titlu prin Open Library API -->
     <section class="card wide" aria-labelledby="search-title">
       <h2 id="search-title">Caută o carte în Open Library</h2>
-      <form id="search-form" class="search-form" role="search">
+      <form id="search-form" class="inline-form search-form" role="search">
         <label for="search-input" class="visually-hidden">Titlu</label>
         <input type="search" id="search-input" name="q" placeholder="ex. Ion" autocomplete="off">
         <button type="submit" id="search-button">Caută</button>
@@ -91,6 +100,7 @@
     </section>
   </main>
 
+  <script src="skills.js"></script>
   <script src="script.js"></script>
   <script src="search.js"></script>
 </body>
